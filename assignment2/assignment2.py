@@ -8,20 +8,15 @@ from datetime import datetime
 def read_employees():
     employees = {}
     rows = []
-    try:
-        with open("C:/Users/miros/CTD-repos/python_class/python_homework/csv/employees.csv", "r") as file:
-            reader = csv.reader(file)
-            for i, row in enumerate(reader):
-                if i==0:
-                    employees["fields"] = row
-                else:
-                    rows.append(row)
-            employees["rows"] = rows
-    except Exception as e:
-        print(e)
-        return
-    else:
-        return employees
+    with open("../csv/employees.csv", "r") as file:
+        reader = csv.reader(file)
+        for i, row in enumerate(reader):
+            if i==0:
+                employees["fields"] = row
+            else:
+                rows.append(row)
+        employees["rows"] = rows
+    return employees
 
 employees = read_employees()
 print(employees)
@@ -103,24 +98,17 @@ print(custom_module.secret)
 def read_minutes():
     minutes1 = {}
     minutes2 ={}
-    try:
-        with open("C:/Users/miros/CTD-repos/python_class/python_homework/csv/minutes1.csv", "r") as file:
-            reader = csv.reader(file)
-            rows = list(reader)
-            minutes1["fields"] = rows[0]
-            minutes1["rows"] = [tuple(row) for row in rows[1:]]
-    except Exception as e:
-        print(e)
-        return
-    try:
-        with open("C:/Users/miros/CTD-repos/python_class/python_homework/csv/minutes2.csv", "r") as file:
-            reader = csv.reader(file)
-            rows = list(reader)
-            minutes2["fields"] = rows[0]
-            minutes2["rows"] = [tuple(row) for row in rows[1:]]
-    except Exception as e:
-        print(e)
-        return
+
+    with open("../csv/minutes1.csv", "r") as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+        minutes1["fields"] = rows[0]
+        minutes1["rows"] = [tuple(row) for row in rows[1:]]
+    with open("../csv/minutes2.csv", "r") as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+        minutes2["fields"] = rows[0]
+        minutes2["rows"] = [tuple(row) for row in rows[1:]]
 
     return minutes1, minutes2
 
@@ -148,21 +136,16 @@ minutes_list = create_minutes_list()
 # Task 14
 
 def write_sorted_list():
-    sorted(minutes_list, key=lambda x: x[1])
+    minutes_list.sort(key=lambda item: item[1])
 
-    sorted_list = list(map(lambda x: (x[0], datetime.strftime(x[1], "%B %d, %Y")), minutes_list))
+    converted_list = list(map(lambda x: (x[0], datetime.strftime(x[1], "%B %d, %Y")), minutes_list))
 
-    try:
-        with open("C:/Users/miros/CTD-repos/python_class/python_homework/assignment2/minutes.csv", "w", newline="") as file:
-            writer = csv.writer(file)
-            writer.writerow(minutes1["fields"])
+    with open("./minutes.csv", "w", newline="") as file:
+        
+        writer = csv.writer(file)
+        writer.writerow(minutes1["fields"])
+        writer.writerows(converted_list)
 
-            writer.writerows(sorted_list)
-    except Exception as e:
-        print(e)
-        return
-    else:
-        return sorted_list
+    return converted_list
 
-sorted_list = write_sorted_list()
-print(sorted_list)
+write_sorted_list()

@@ -2,7 +2,7 @@ import traceback
 
 # Task 1
 try:
-    with open('diary.txt', 'w') as file:
+    with open('diary.txt', 'a') as file:
         answer = input("What happened today?")
         file.write(answer + "\n")
         while(answer != "done for now"):
