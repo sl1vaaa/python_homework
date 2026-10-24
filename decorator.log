@@ -1,0 +1,48 @@
+function: nothing
+        positional parameters: none
+        keyword parameters: none
+        return: None
+        
+        
+function: positional_function
+        positional parameters: (105, 21, 333, 'hellomonkeys')
+        keyword parameters: none
+        return: True
+        
+        
+function: keyword_function
+        positional parameters: none
+        keyword parameters: {'name': 'Miroslav', 'age': 19, 'prog_language': 'Python'}
+        return: <function logger_decorator at 0x000002D8F8323690>
+        
+        
+function: nothing
+        positional parameters: none
+        keyword parameters: none
+        return: None
+        
+function: positional_function
+        positional parameters: (105, 21, 333, 'hellomonkeys')
+        keyword parameters: none
+        return: True
+        
+function: keyword_function
+        positional parameters: none
+        keyword parameters: {'name': 'Miroslav', 'age': 19, 'prog_language': 'Python'}
+        return: <function logger_decorator at 0x00000258FB3F3690>
+        
+function: nothing
+        positional parameters: none
+        keyword parameters: none
+        return: None
+        
+function: positional_function
+        positional parameters: (105, 21, 333, 'hellomonkeys')
+        keyword parameters: none
+        return: True
+        
+function: keyword_function
+        positional parameters: none
+        keyword parameters: {'name': 'Miroslav', 'age': 19, 'prog_language': 'Python'}
+        return: <function logger_decorator at 0x000001D5355E3690>
+        
